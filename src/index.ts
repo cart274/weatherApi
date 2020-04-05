@@ -26,13 +26,12 @@ const loadModules = ()=>{
             let reqModule = require(`./modules/${path}`); 
             app.use(endPoint, reqModule);
           }
-				} catch(error){
+				} catch(error) {
 					logger.error(error, "Error cargando modulos" + path);
 				}
 			});
 		});
-	}
-	catch(error){
+	} catch(error) {
 		logger.error(error);
 	}
 }
