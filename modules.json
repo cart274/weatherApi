@@ -1,0 +1,4 @@
+[
+	{ "name" : "cities", "path" : "cities/index.ts", "endPoint" : "/cities" },
+	{ "name" : "weather", "path" : "weather/index.ts", "endPoint" : "/weather" }
+]
