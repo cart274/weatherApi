@@ -1,7 +1,7 @@
 const log4js = require('log4js');
 log4js.configure({
     appenders: {
-        errorFile: {
+        loggerFile: {
             type: "file",
             filename: "./logs/logs.log",
             backups: 3
@@ -9,7 +9,7 @@ log4js.configure({
         logger: { type: 'stdout' }
     },
     categories: {
-        default: { appenders: ["logger", "errorFile"], level: "trace" }
+        default: { appenders: ["logger", "loggerFile"], level: "trace" }
     }
 });
 module.exports = log4js;

@@ -1,11 +1,28 @@
 import * as express from "express";
 const router = express.Router();
-const log4js = require('../../utils/logger.ts');
-const logger = log4js.getLogger('logger');
+import {Weather} from './weather';
+const weather = new Weather();
 
-router.get('/current', (req: express.Request, res: express.Response, next: express.NextFunction) => {
-	logger.trace('./weather');
-	res.status(200).json({status: "weather"});
+router.get('/current', (req: express.Request, res: express.Response, next: express.NextFunction) => {	
+	const lat:string = req.query.lat;
+	const lon:string = req.query.lon;
+	if (!lat || !lon) {
+		res.status(400).json('Bad request');
+	}
+	weather.getCurrentWeather(lat, lon)
+		.then((currentWeather) => res.status(200).json({currentWeather}))
+		.catch((error) => res.status(502).json(error));
+});
+
+router.get('/forecast', (req: express.Request, res: express.Response, next: express.NextFunction) => {	
+	const lat:string = req.query.lat;
+	const lon:string = req.query.lon;
+	if (!lat || !lon) {
+		res.status(400).json('Bad request');
+	}
+	weather.getCurrentWeather(lat, lon)
+		.then((currentWeather) => res.status(200).json({currentWeather}))
+		.catch((error) => res.status(502).json(error));
 });
 
 module.exports = router;
