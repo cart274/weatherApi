@@ -9,7 +9,7 @@ router.get('/current', (req: express.Request, res: express.Response, next: expre
 	if (!lat || !lon) {
 		res.status(400).json('Bad request');
 	}
-	weather.getCurrentWeather(lat, lon)
+	weather.getWeather(lat, lon)
 		.then((currentWeather) => res.status(200).json({currentWeather}))
 		.catch((error) => res.status(502).json(error));
 });
@@ -17,10 +17,11 @@ router.get('/current', (req: express.Request, res: express.Response, next: expre
 router.get('/forecast', (req: express.Request, res: express.Response, next: express.NextFunction) => {	
 	const lat:string = req.query.lat;
 	const lon:string = req.query.lon;
+	const cnt:number = Number(req.query.cnt);
 	if (!lat || !lon) {
 		res.status(400).json('Bad request');
 	}
-	weather.getCurrentWeather(lat, lon)
+	weather.getWeather(lat, lon, cnt)
 		.then((currentWeather) => res.status(200).json({currentWeather}))
 		.catch((error) => res.status(502).json(error));
 });
