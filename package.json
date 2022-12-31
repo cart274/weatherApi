@@ -13,7 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0",
+    "webpack": "^5.75.0",
     "webpack-watch-server": "^1.2.1"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "axios": "^0.19.2",
     "express": "^4.16.2",
     "log4js": "^6.1.2",
-    "ts-loader": "^3.2.0",
+    "ts-loader": "^9.4.2",
     "typescript": "^2.6.2"
   }
 }
