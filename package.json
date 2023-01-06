@@ -13,7 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "uglifyjs-webpack-plugin": "^1.1.6",
-    "webpack": "^3.10.0",
+    "webpack": "^5.75.0",
     "webpack-watch-server": "^1.2.1"
   },
   "dependencies": {
